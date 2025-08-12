@@ -1,0 +1,1 @@
+# Design-of-an-adaptive-RTL-algorithm-for-brightness-dynamic-curve-with-dark-enhancement.
