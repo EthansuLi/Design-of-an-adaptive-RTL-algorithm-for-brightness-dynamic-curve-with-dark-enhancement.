@@ -1,3 +1,17 @@
+//***************************************
+//COPYRIGHT(C)2025,EthasuLi
+//All rights reserved.
+//Module Name  : c_tab.v
+//
+//Author       : EthasuLi
+//Email        : 13591028146@163.com
+//Data         : 2025/8/5
+//Version      : V 1.0
+//
+//Abstract     : 
+//Called by    :
+//
+//****************************************    
 module main_map
 #(
 	parameter QVAL 		= 255	,
@@ -74,11 +88,11 @@ reg [17:0] Iloc2_b;
 reg [17:0] Iloc2_r_d; // Q8.8 -> Q18.0
 reg [17:0] Iloc2_g_d;
 reg [17:0] Iloc2_b_d;
-// Iloc3 �? cq + Iloc1
+// Iloc3 ï¼? cq + Iloc1
 reg [16:0] Iloc3_r; // Q8.8 -> Q17.0
 reg [16:0] Iloc3_g;
 reg [16:0] Iloc3_b;
-// Iloc4 : 比较Iloc3 �? Iloc2_d
+// Iloc4 : æ¯”è¾ƒIloc3 å’? Iloc2_d
 reg [16:0] Iloc4_r  ;
 reg [16:0] Iloc4_g  ;
 reg [16:0] Iloc4_b  ;
@@ -90,7 +104,7 @@ reg [7:0] Iloc_r_d  ;
 reg [7:0] Iloc_g_d  ;
 reg [7:0] Iloc_b_d  ;
 
-// ctab �? p_q�?6�? p_map�?要打4�?
+// ctab å’? p_qæ‰?6æ‹? p_mapéœ?è¦æ‰“4æ‹?
 reg [47:0] shift_ctab_r;
 reg [47:0] shift_ctab_g;
 reg [47:0] shift_ctab_b;
@@ -102,7 +116,7 @@ reg [31:0] shift_pmap_b;
 reg [7:0] L2_r  ;
 reg [7:0] L2_g  ;
 reg [7:0] L2_b  ;
-// p2_q�?11�?
+// p2_qæ‰?11æ‹?
 reg [87:0] shift_p2q;
 
 // Iglob
@@ -140,7 +154,7 @@ always@(posedge clk or negedge rst_n) begin
 		shift_oneXb <=  {shift_oneXb[23:0], oneXb};
 	end
 end
-always@(posedge clk or negedge rst_n) begin // ctab �? p_q�?6�?
+always@(posedge clk or negedge rst_n) begin // ctab å’? p_qæ‰?6æ‹?
 	if(~rst_n) begin
 		shift_ctab_r	<= 'd0;
 		shift_ctab_g	<= 'd0;
@@ -154,7 +168,7 @@ always@(posedge clk or negedge rst_n) begin // ctab �? p_q�?6�?
 		shift_pq		<=	{shift_pq[79:0]	,p_q	};
 	end
 end
-always@(posedge clk or negedge rst_n) begin // ctab �? p_q�?6�?
+always@(posedge clk or negedge rst_n) begin // ctab å’? p_qæ‰?6æ‹?
 	if(~rst_n)
 		shift_p2q <= 'd0;
 	else
@@ -175,7 +189,7 @@ always@(posedge clk or negedge rst_n) begin
 end
 
 // ============================================ //
-// 1�? 
+// 1æ‹? 
 always@(posedge clk or negedge rst_n) begin
 	if(~rst_n) begin
 		p1_r	<= 'd0;
@@ -188,7 +202,7 @@ always@(posedge clk or negedge rst_n) begin
 		p1_b	<= b * oneXb >> SHIFT;
 	end
 end
-// 1�?
+// 1æ‹?
 always@(posedge clk or negedge rst_n) begin
 	if(~rst_n) begin
 		pmap_r <= 'd0;
@@ -201,7 +215,7 @@ always@(posedge clk or negedge rst_n) begin
 		pmap_b	<= p1_b * shift_oneXb[15:8] >> SHIFT;
 	end
 end
-always@(posedge clk or negedge rst_n) begin // pmap�?4�?
+always@(posedge clk or negedge rst_n) begin // pmapæ‰?4æ‹?
 	if(~rst_n) begin
 		shift_pmap_r <= 'd0;
 		shift_pmap_g <= 'd0;
@@ -213,7 +227,7 @@ always@(posedge clk or negedge rst_n) begin // pmap�?4�?
 		shift_pmap_b <=  {shift_pmap_b[23:0], pmap_b};
 	end
 end
-// 1�? ============= rgb �?要打3�?
+// 1æ‹? ============= rgb éœ?è¦æ‰“3æ‹?
 always@(posedge clk or negedge rst_n) begin
 	if(~rst_n) begin
 		x2_r <= 'd0;
@@ -226,7 +240,7 @@ always@(posedge clk or negedge rst_n) begin
 		x2_b	<= shift_b[23:16] * shift_b[23:16] >> SHIFT;
 	end
 end
-// 1�?
+// 1æ‹?
 always@(posedge clk or negedge rst_n) begin
 	if(~rst_n) begin
 		x4_r <= 'd0;
@@ -239,7 +253,7 @@ always@(posedge clk or negedge rst_n) begin
 		x4_b	<= x2_b * x2_b >> SHIFT;
 	end
 end
-// 1�?
+// 1æ‹?
 always@(posedge clk or negedge rst_n) begin
 	if(~rst_n) begin
 		h1_r <= 'd0;
@@ -252,7 +266,7 @@ always@(posedge clk or negedge rst_n) begin
 		h1_b	<= x4_b * shift_oneXb[31:24] >> SHIFT;
 	end
 end
-// 1�?
+// 1æ‹?
 always@(posedge clk or negedge rst_n) begin
 	if(~rst_n) begin
 		hmap_r <= 'd0;
@@ -265,9 +279,9 @@ always@(posedge clk or negedge rst_n) begin
 		hmap_b	<= ALPHA_H_Q * h1_b >> SHIFT;
 	end
 end
-// 截至到这里，c_tab和p_q�?要打6拍，p_map�?要打4拍，rgb已经打了6�?
+// æˆªè‡³åˆ°è¿™é‡Œï¼Œc_tabå’Œp_qéœ?è¦æ‰“6æ‹ï¼Œp_mapéœ?è¦æ‰“4æ‹ï¼Œrgbå·²ç»æ‰“äº†6æ‹?
 
-// 4�?,计算Iloc
+// 4æ‹?,è®¡ç®—Iloc
 always@(posedge clk or negedge rst_n) begin
 	if(~rst_n) begin
 		Iloc1_r <= 'd0;
@@ -346,8 +360,8 @@ always@(posedge clk or negedge rst_n) begin
 			Iloc_b <= Iloc4_b[7:0];
 	end
 end
-// 截至到这里，rgb已经打了10�?
-// 1�?
+// æˆªè‡³åˆ°è¿™é‡Œï¼Œrgbå·²ç»æ‰“äº†10æ‹?
+// 1æ‹?
 always@(posedge clk or negedge rst_n) begin
 	if(~rst_n) begin
 		L2_r <= 'd0;
@@ -366,8 +380,8 @@ always@(posedge clk or negedge rst_n) begin
 		Iloc_b_d <= Iloc_b;
 	end
 end
-// 截至到这里，Iloc�?要打�?拍，p2_q�?要打11拍，rgb已经打了11�?
-// 3�?
+// æˆªè‡³åˆ°è¿™é‡Œï¼ŒIlocéœ?è¦æ‰“ä¸?æ‹ï¼Œp2_qéœ?è¦æ‰“11æ‹ï¼Œrgbå·²ç»æ‰“äº†11æ‹?
+// 3æ‹?
 always@(posedge clk or negedge rst_n) begin
 	if(~rst_n) begin
 		Iglob1_r	<= 'd0;
@@ -420,7 +434,7 @@ always@(posedge clk or negedge rst_n) begin
 	end
 end
 
-// 截至到这里rgb已经打了14�?
+// æˆªè‡³åˆ°è¿™é‡Œrgbå·²ç»æ‰“äº†14æ‹?
 assign o_rgb = {Iglob_r,Iglob_g,Iglob_b};
 
 always@(posedge clk or negedge rst_n) begin
@@ -455,5 +469,6 @@ c_tab inst_b(
 	.o_data  (b_ctab)
 );
 endmodule
+
 
 
