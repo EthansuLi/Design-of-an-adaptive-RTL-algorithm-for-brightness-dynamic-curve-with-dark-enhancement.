@@ -1,3 +1,17 @@
+//***************************************
+//COPYRIGHT(C)2025,EthasuLi
+//All rights reserved.
+//Module Name  : c_tab.v
+//
+//Author       : EthasuLi
+//Email        : 13591028146@163.com
+//Data         : 2025/8/5
+//Version      : V 1.0
+//
+//Abstract     : 
+//Called by    :
+//
+//****************************************  
 module top
 (
 	input 						clk			 	,
@@ -112,3 +126,4 @@ dynamic_para#(					// 5拍
 	.o_rgb          (o_rgb)
 );
 endmodule
+
