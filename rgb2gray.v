@@ -1,3 +1,17 @@
+//***************************************
+//COPYRIGHT(C)2025,EthasuLi
+//All rights reserved.
+//Module Name  : c_tab.v
+//
+//Author       : EthasuLi
+//Email        : 13591028146@163.com
+//Data         : 2025/8/5
+//Version      : V 1.0
+//
+//Abstract     : 
+//Called by    :
+//
+//****************************************  
 module rgb2gray
 (
 	input 					clk		,
@@ -74,5 +88,6 @@ always@(posedge clk or negedge rst_n) begin
 		rgb    <= rgb_d1;
 	end
 end
+
 
 endmodule
