@@ -1,7 +1,7 @@
 //***************************************
 //COPYRIGHT(C)2025,EthasuLi
 //All rights reserved.
-//Module Name  : c_tab.v
+//Module Name  : main_map.v
 //
 //Author       : EthasuLi
 //Email        : 13591028146@163.com
@@ -469,6 +469,7 @@ c_tab inst_b(
 	.o_data  (b_ctab)
 );
 endmodule
+
 
 
 
