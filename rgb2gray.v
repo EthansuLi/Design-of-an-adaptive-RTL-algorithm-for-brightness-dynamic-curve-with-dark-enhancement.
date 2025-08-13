@@ -1,7 +1,7 @@
 //***************************************
 //COPYRIGHT(C)2025,EthasuLi
 //All rights reserved.
-//Module Name  : c_tab.v
+//Module Name  : rgb2gray.v
 //
 //Author       : EthasuLi
 //Email        : 13591028146@163.com
@@ -91,3 +91,4 @@ end
 
 
 endmodule
+
