@@ -1,7 +1,7 @@
 //***************************************
 //COPYRIGHT(C)2025,EthasuLi
 //All rights reserved.
-//Module Name  : c_tab.v
+//Module Name  : top.v
 //
 //Author       : EthasuLi
 //Email        : 13591028146@163.com
@@ -126,4 +126,5 @@ dynamic_para#(					// 5拍
 	.o_rgb          (o_rgb)
 );
 endmodule
+
 
