@@ -1,7 +1,7 @@
 //***************************************
 //COPYRIGHT(C)2025,EthasuLi
 //All rights reserved.
-//Module Name  : c_tab.v
+//Module Name  : dynamic_para.v
 //
 //Author       : EthasuLi
 //Email        : 13591028146@163.com
@@ -162,3 +162,4 @@ assign o_rgb	= shift_rgb[119:96];
 
 
 endmodule
+
