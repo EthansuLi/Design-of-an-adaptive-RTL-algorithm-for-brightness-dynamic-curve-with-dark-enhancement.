@@ -1,3 +1,17 @@
+//***************************************
+//COPYRIGHT(C)2025,EthasuLi
+//All rights reserved.
+//Module Name  : c_tab.v
+//
+//Author       : EthasuLi
+//Email        : 13591028146@163.com
+//Data         : 2025/8/5
+//Version      : V 1.0
+//
+//Abstract     : 
+//Called by    :
+//
+//****************************************  
 module dynamic_para#(
 	parameter QVAL 		= 255	,
 	parameter LREF_Q 	= 154	,
@@ -48,7 +62,7 @@ reg [4:0] shift_hs;
 reg [4:0] shift_de;
 reg [119:0] shift_rgb;
 // Q8.8
-always@(posedge clk or negedge rst_n) begin // 1�?
+always@(posedge clk or negedge rst_n) begin // 1æ‹?
 	if(~rst_n)
 		Lmean <= LREF_Q;
 	else if(vsync_fall)
@@ -60,7 +74,7 @@ always@(posedge clk or negedge rst_n) begin // 1�?
 				Lmean <= Lmean - ((Lmean - gray)>>>SMOOTH_K);
 	end
 end
-// 3�?
+// 3æ‹?
 always@(posedge clk or negedge rst_n) begin 
 	if(~rst_n) begin
 		diff1 <= 'd0;
@@ -101,7 +115,7 @@ always@(posedge clk or negedge rst_n) begin
 	end
 end
 
-// 1�?
+// 1æ‹?
 always@(posedge clk or negedge rst_n) begin 
 	if(~rst_n)
 		p_q <= 'd0;
@@ -126,7 +140,7 @@ always@(posedge clk or negedge rst_n) begin
 	end
 end
 
-// �?共打5�?
+// ä¸?å…±æ‰“5æ‹?
 always@(posedge clk or negedge rst_n) begin
 	if(~rst_n) begin
 		shift_vs	<= 'd0;
@@ -145,5 +159,6 @@ assign o_v		= shift_vs[4];
 assign o_h		= shift_hs[4];
 assign o_de 	= shift_de[4];
 assign o_rgb	= shift_rgb[119:96];
+
 
 endmodule
