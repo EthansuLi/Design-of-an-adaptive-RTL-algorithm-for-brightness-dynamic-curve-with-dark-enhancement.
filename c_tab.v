@@ -21,7 +21,7 @@ module c_tab(
 
 always@(*) begin
 	case(idata)
-		0	:	o_data	<=	0	;
+		0	:	o_data	=	0	;
 1	:	o_data	=	2	;
 2	:	o_data	=	4	;
 3	:	o_data	=	7	;
@@ -284,3 +284,4 @@ end
 
 
 endmodule
+
